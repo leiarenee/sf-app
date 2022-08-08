@@ -1,0 +1,21 @@
+# install
+FROM node:12-slim as install
+ADD package.json app/
+ADD yarn.lock app/
+ADD tsconfig.json app/
+WORKDIR /app
+RUN yarn install
+
+# build stage
+FROM node:12-slim as build
+WORKDIR /app
+COPY --from=install /app/node_modules .
+ADD package.json .
+ADD yarn.lock .
+ADD public .
+ADD src .
+ADD tsconfig.json .
+RUN yarn build
+
+
+
