@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo Building the Docker image...
+cd $BUILD_CONTEXT
+$BUILD_FILE
