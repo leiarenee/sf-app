@@ -1,5 +1,4 @@
 #!/bin/bash
-
+source ./.getenv
 echo Building the Docker image...
-cd $BUILD_CONTEXT
 $BUILD_FILE

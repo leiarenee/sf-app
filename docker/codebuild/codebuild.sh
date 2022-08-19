@@ -148,7 +148,7 @@ fi
 
 echo -e "${GREEN}- Building Image ${NC}"
 echo
-docker build . \
+docker build $BUILD_CONTEXT \
   --file $DOCKER_FILE \
   --build-arg PYTHON_VERSION=$PYTHON_VERSION \
   --build-arg PYTHON_COMMAND=$PYTHON_COMMAND \
