@@ -150,12 +150,11 @@ echo -e "${GREEN}- Building Image ${NC}"
 echo
 docker build $BUILD_CONTEXT \
   --file $DOCKER_FILE \
-  --build-arg PYTHON_VERSION=$PYTHON_VERSION \
-  --build-arg PYTHON_COMMAND=$PYTHON_COMMAND \
   --tag $IMAGE_REPO_URL:$DOCKER_IMAGE_VERSION \
   --tag $IMAGE_REPO_URL:latest \
   --tag $IMAGE_REPO_NAME:latest \
-  $cache_string 
+  --cache-from $IMAGE_REPO_URL:latest
+  #$cache_string 
 
 # Login to ECR
 if [ ! -z $ECR_LOGIN ]
