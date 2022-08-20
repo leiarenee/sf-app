@@ -133,7 +133,8 @@ then
       docker pull $IMAGE_REPO_URL:latest || true
       echo
     fi
-    cache_string="--cache-from $IMAGE_REPO_URL:latest"
+    [[ ! -z $(docker image ls $IMAGE_REPO_URL:latest -q) ]] && cache_string="--cache-from $IMAGE_REPO_URL:latest" $$ echo cache_argument : "$cache_string"
+    
   fi
 else
   echo -e "${RED} Remote cache Disabled ! ${NC}"
