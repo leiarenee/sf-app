@@ -1,0 +1,22 @@
+#!/bin/bash
+if [[ $1 != server ]] && [[ $1 != client ]]
+then
+  echo "usage build <client/server>"
+  exit
+fi
+
+source ./.getenv
+APP_NAME=${1:-APP_NAME}
+BUILD_CONTEXT=$APP_NAME
+DOCKER_FILE=$APP_NAME/Dockerfile
+IMAGE_REPO_NAME=$APP_NAME
+
+echo APP_NAME = $APP_NAME
+echo BUILD_CONTEXT = $BUILD_CONTEXT
+echo BUILD_FILE = $BUILD_FILE
+echo IMAGE_REPO_NAME = $IMAGE_REPO_NAME
+echo "continuie ? (y)"
+read answer
+
+[[ $answer != "y" ]] && exit 0
+$BUILD_FILE
