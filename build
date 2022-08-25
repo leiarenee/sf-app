@@ -15,7 +15,7 @@ echo APP_NAME = $APP_NAME
 echo BUILD_CONTEXT = $BUILD_CONTEXT
 echo BUILD_FILE = $BUILD_FILE
 echo IMAGE_REPO_NAME = $IMAGE_REPO_NAME
-echo "continuie ? (y)"
+echo "Please enter 'y' to continue..."
 read answer
 
 [[ $answer != "y" ]] && exit 0

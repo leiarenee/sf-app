@@ -1,6 +1,6 @@
 #!/bin/bash -e
 #
-# This script extracts environment variables from specified files such as '.env','.det.env','../other/.env'
+# This script extracts environment variables from specified files such as '.env','.dev.env'
 # Author  : Leia Rénee 
 # Github  : github.com/leiarenee
 # Licence : MIT

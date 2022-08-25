@@ -23,7 +23,6 @@ WHITE=`tput -T $TERM setaf 7`
 [[ "$ECR_LOGIN" == "false" ]] && ECR_LOGIN=""
 [[ "$ECR_STATIC_LOGIN" == "false" ]] && ECR_STATIC_LOGIN=""
 
-
 # Checkout to branch
 function change_branch {
   echo
