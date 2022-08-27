@@ -4,7 +4,7 @@ FROM public.ecr.aws/docker/library/node:12-slim as install
 ADD . /app
 WORKDIR /app
 RUN yarn install
-ENV REACT_APP_BACKEND_URL=http://localhost:9000
+ENV REACT_APP_BACKEND_URL=http://localhost:4000
 RUN yarn build
 
 FROM public.ecr.aws/nginx/nginx:1

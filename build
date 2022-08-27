@@ -15,8 +15,13 @@ echo APP_NAME = $APP_NAME
 echo BUILD_CONTEXT = $BUILD_CONTEXT
 echo BUILD_FILE = $BUILD_FILE
 echo IMAGE_REPO_NAME = $IMAGE_REPO_NAME
-echo "Please enter 'y' to continue..."
-read answer
 
-[[ $answer != "y" ]] && exit 0
-$BUILD_FILE
+if [[ $1 == "-n" ]]
+then
+  echo "Please enter 'y' to continue..."
+  read answer
+  [[ $answer != "y" ]] && exit 0
+else
+  $BUILD_FILE
+fi
+
