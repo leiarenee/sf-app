@@ -25,7 +25,7 @@ services:
     restart: always
     environment:
       - POSTGRES_USER=pguser
-      - POSTGRES_PASSWORD=pgpass
+      - POSTGRES_PASSWORD=pgpass12
       - POSTGRES_DB=pgdb
     volumes:
       - db-data:/var/lib/postgresql/data
