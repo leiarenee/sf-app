@@ -37,7 +37,7 @@ do
         IFS='≈'                   # Set Internal Field Seperator (IFS)
         arr=($subst)              # Make it array having 2 elements.
         key=${arr[0]}             # First is variable name.
-        value=${arr[1]}           # Second is variable value.
+        value=$(echo ${arr[1]} | xargs)   # Second is variable value. xargs is used to trim white spaces
         export $key=$value
         unset IFS                 # Restore IFS
       fi
