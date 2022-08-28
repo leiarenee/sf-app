@@ -8,4 +8,4 @@ jobs:
     - name: Client Install modules
       run: yarn --cwd client
     - name: Client Run tests
-      run: yarn --cwd test
+      run: yarn --cwd client
