@@ -111,7 +111,7 @@ fi
 if [[ $(echo $IMAGE_REPO_NAME | grep client ) ]]
 then
   docker build $BUILD_CONTEXT --file $DOCKER_FILE --target install --tag $IMAGE_REPO_URL:install-cache
-  docker push $IMAGE_REPO_URL:install-cache:
+  docker push $IMAGE_REPO_URL:install-cache
 fi
 
 
