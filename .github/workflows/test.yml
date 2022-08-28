@@ -10,6 +10,8 @@ jobs:
     - name: Server Run tests
       run: yarn --cwd server test
   build:
+    runs-on: ubuntu-latest
+    steps:
     - uses: actions/checkout@v2
     - name: Configure AWS credentials
       id: creds
