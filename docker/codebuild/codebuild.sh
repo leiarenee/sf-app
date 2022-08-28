@@ -33,6 +33,8 @@ function ecr_login {
 export ECR_URL=$AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com
 export IMAGE_REPO_URL=$ECR_URL/$IMAGE_REPO_NAME
 
+ecr_login
+
 # Enforce no cache
 if [ ! -z $ENFORCE_NO_CACHE ]
 then
