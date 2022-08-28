@@ -1,0 +1,12 @@
+name: test
+on: 
+  push:
+  pull_reuest:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    - uses: actions/checkout@v2
+    - name: Client Install modules
+      run: yarn --cwd client
+    - name: Client Run tests
+      run: yarn --cwd test
