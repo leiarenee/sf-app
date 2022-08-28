@@ -59,6 +59,7 @@ then
       echo -e "${GREEN}- Downloading latest image ${NC}"
       echo
       docker pull $IMAGE_REPO_URL:latest || true
+      docker push $IMAGE_REPO_URL-install-cache:latest || true
       echo
     fi
     [[ ! -z $(docker image ls $IMAGE_REPO_URL:latest -q) ]] && cache_string="--cache-from $IMAGE_REPO_URL:latest" && echo "cache_argument : $cache_string"
@@ -104,6 +105,15 @@ then
   echo
   docker push $IMAGE_REPO_URL:latest
 fi
+
+# Build install stage
+if [[ $(echo $IMAGE_REPO_NAME | grep client ) ]]
+then
+  docker build $BUILD_CONTEXT --file $DOCKER_FILE --target install --tag $IMAGE_REPO_URL-install-cache:latest
+  docker push $IMAGE_REPO_URL-install-cache:latest
+fi
+
+
 
 echo -e "${GREEN}- Build Complete ${NC}"
 
