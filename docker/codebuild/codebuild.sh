@@ -74,13 +74,10 @@ fi
 
 echo -e "${GREEN}- Building Image ${NC}"
 echo
-docker build $BUILD_CONTEXT \
-  --file $DOCKER_FILE \
-  --tag $IMAGE_REPO_URL:latest \
-  --tag $IMAGE_REPO_URL:$IMAGE_TAG \
-  --tag $IMAGE_REPO_NAME:latest \
-  --tag $IMAGE_REPO_NAME:$IMAGE_TAG \
-  $cache_string
+docker build $BUILD_CONTEXT --file $DOCKER_FILE \
+  --tag $IMAGE_REPO_URL:latest --tag $IMAGE_REPO_URL:$IMAGE_TAG \
+  --tag $IMAGE_REPO_NAME:latest --tag $IMAGE_REPO_NAME:$IMAGE_TAG \
+  $cache_string $no_cache_argument
 
 echo -e "${CYAN}Docker Image Repository URL${NC} : ${GREEN}$IMAGE_REPO_URL:$IMAGE_TAG${NC}"
 echo -e "${CYAN}Local image${NC} : ${GREEN}$APP_NAME:$IMAGE_TAG ${NC} "
@@ -99,7 +96,7 @@ then
   echo
   echo -e "${GREEN}- Uploading Application Image ${NC}"
   echo
-  docker push $IMAGE_REPO_URL:$DOCKER_IMAGE_VERSION
+  docker push $IMAGE_REPO_URL:$IMAGE_TAG
 
   # Upload tag:latest
   echo
