@@ -9,3 +9,5 @@ jobs:
       run: yarn --cwd client
     - name: Client Run tests
       run: yarn --cwd client
+    - name: Run Jest
+      run: yarn test --cwd client
