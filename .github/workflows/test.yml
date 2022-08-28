@@ -12,7 +12,7 @@ jobs:
     - name: Symantic Versioning
       run: |
         yarn --cwd server add ci-auto-version@0.3.0 --no-save
-        node node_modules/ci-auto-version/auto_version.js
+        node server/node_modules/ci-auto-version/auto_version.js
   build:
     if: 1 == 0
     runs-on: ubuntu-latest
