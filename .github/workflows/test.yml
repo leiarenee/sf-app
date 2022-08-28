@@ -9,11 +9,6 @@ jobs:
       run: yarn --cwd server
     - name: Server Run tests
       run: yarn --cwd server test
-    - name: Symantic Versioning
-      run: |
-        cd server
-        yarn add ci-auto-version@0.3.0 --no-save
-        node node_modules/ci-auto-version/auto_version.js
   build:
     if: 1 == 0
     runs-on: ubuntu-latest
@@ -40,3 +35,13 @@ jobs:
         docker build server -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
   
+    - name:  'Automated Version Bump'
+      uses:  'phips28/gh-action-bump-version@master'
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        minor-wording:  'add,Adds,new'
+        major-wording:  'MAJOR,cut-major'
+        patch-wording:  'patch,fixes'     # Providing patch-wording will override commits
+                                          # defaulting to a patch bump.
+        rc-wording:     'RELEASE,alpha'
