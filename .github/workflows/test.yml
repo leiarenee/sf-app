@@ -10,6 +10,7 @@ jobs:
     - name: Server Run tests
       run: yarn --cwd server test
   build:
+    if: 1 == 0
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
