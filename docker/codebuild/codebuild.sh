@@ -1,5 +1,6 @@
 #!/bin/bash
 set -e
+set -x
 # colors
 TERM=xterm-256color
 NC=`tput -T $TERM sgr0`
@@ -68,6 +69,8 @@ else
   echo
 fi
 
+
+# ---------- BUILD -----------
 
 echo -e "${GREEN}- Building Image ${NC}"
 echo
