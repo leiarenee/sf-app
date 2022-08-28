@@ -59,11 +59,11 @@ then
       echo -e "${GREEN}- Downloading latest image ${NC}"
       echo
       docker pull $IMAGE_REPO_URL:latest || true
-      docker push $IMAGE_REPO_URL:install-cache || true
+      docker pull $IMAGE_REPO_URL:install-cache || true
       echo
     fi
     [[ ! -z $(docker image ls $IMAGE_REPO_URL:latest -q) ]] && cache_string="--cache-from $IMAGE_REPO_URL:latest" && echo "cache_argument : $cache_string"
-    [[ ! -z $(docker image ls $IMAGE_REPO_URL:install-cache -q) ]] && install_cache_string="--cache-from $IMAGE_REPO_URL:instal-cache" && echo "cache_argument : $install_cache_string"
+    [[ ! -z $(docker image ls $IMAGE_REPO_URL:install-cache -q) ]] && install_cache_string="--cache-from $IMAGE_REPO_URL:instal-cache" && echo "install_cache_argument : $install_cache_string"
     
   fi
 else
