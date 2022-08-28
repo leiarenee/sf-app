@@ -77,7 +77,7 @@ describe("config tests", () => {
             "migrations": Array [
               "src/migration/**/*.ts",
             ],
-            "password": "pgpass",
+            "password": "pgpass12",
             "port": 5432,
             "subscribers": Array [
               "src/subscriber/**/*.ts",
@@ -107,7 +107,7 @@ describe("config tests", () => {
             "migrations": Array [
               "src/migration/**/*.ts",
             ],
-            "password": "pgpass",
+            "password": "pgpass12",
             "port": 5432,
             "subscribers": Array [
               "src/subscriber/**/*.ts",
@@ -137,7 +137,7 @@ describe("config tests", () => {
             "migrations": Array [
               "src/migration/**/*.ts",
             ],
-            "password": "pgpass",
+            "password": "pgpass12",
             "port": 5432,
             "subscribers": Array [
               "src/subscriber/**/*.ts",
@@ -197,7 +197,7 @@ describe("config tests", () => {
             "migrations": Array [
               "src/migration/**/*.ts",
             ],
-            "password": "pgpass",
+            "password": "pgpass12",
             "port": 5432,
             "subscribers": Array [
               "src/subscriber/**/*.ts",
@@ -227,7 +227,7 @@ describe("config tests", () => {
             "migrations": Array [
               "src/migration/**/*.ts",
             ],
-            "password": "pgpass",
+            "password": "pgpass12",
             "port": 8080,
             "subscribers": Array [
               "src/subscriber/**/*.ts",
