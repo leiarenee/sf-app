@@ -79,7 +79,8 @@ docker build $BUILD_CONTEXT \
   --tag $IMAGE_REPO_URL:latest \
   --tag $IMAGE_REPO_URL:$IMAGE_TAG \
   --tag $IMAGE_REPO_NAME:latest \
-  --tag $IMAGE_REPO_NAME:$IMAGE_TAG 
+  --tag $IMAGE_REPO_NAME:$IMAGE_TAG \
+  $cache_string
 
 echo -e "${CYAN}Docker Image Repository URL${NC} : ${GREEN}$IMAGE_REPO_URL:$IMAGE_TAG${NC}"
 echo -e "${CYAN}Local image${NC} : ${GREEN}$APP_NAME:$IMAGE_TAG ${NC} "
