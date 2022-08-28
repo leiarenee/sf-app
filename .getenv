@@ -39,7 +39,7 @@ do
         key=${arr[0]}             # First is variable name.
         value=$(echo ${arr[1]} | xargs)   # Second is variable value. xargs is used to trim white spaces
         export $key=$value
-        unset IFS                 # Restore IFS
+        unset IFS                 # Restore IFS #
       fi
     done
   fi
