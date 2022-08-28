@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Client Install modules
-      run: yarn --cwd client
-    - name: Client Run tests
-      run: yarn --cwd client test
+    - name: Server Install modules
+      run: yarn --cwd server
+    - name: Server Run tests
+      run: yarn --cwd server test
