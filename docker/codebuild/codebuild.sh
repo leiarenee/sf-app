@@ -94,20 +94,6 @@ then
   change_branch
 fi
 
-# Fetch Repository Version
-if [ ! -z $FETCH_REPO_VERSION ]
-then
-  fetch_image_version
-else
-  export DOCKER_IMAGE_VERSION=latest
-fi
-
-# Login to ECR
-if [ ! -z $ECR_LOGIN ]
-then
-  ecr_login
-fi
-
 # Enforce no cache
 if [ ! -z $ENFORCE_NO_CACHE ]
 then
@@ -151,17 +137,16 @@ echo -e "${GREEN}- Building Image ${NC}"
 echo
 docker build $BUILD_CONTEXT \
   --file $DOCKER_FILE \
-  --tag $IMAGE_REPO_URL:$DOCKER_IMAGE_VERSION \
   --tag $IMAGE_REPO_URL:latest \
-  --tag $IMAGE_REPO_NAME:latest \
-  --tag $APP_NAME:latest \
-  --tag $APP_NAME:$DOCKER_IMAGE_VERSION \
-  --build-arg TERRAFORM_VERSION=$TERRAFORM_VERSION --build-arg TERRAGRUNT_VERSION=$TERRAGRUNT_VERSION \
+  --tag $IMAGE_REPO_URL:$IMAGE_TAG \
+  --tag $IMAGE_REPO_NAME:latest \ # for local builds
+  --tag $IMAGE_REPO_NAME:$IMAGE_TAG \  # for local builds
   $cache_string \
   $no_cache_argument
 
-echo Docker Image Repository URL : $IMAGE_REPO_URL:$DOCKER_IMAGE_VERSION
-echo Local image : $APP_NAME:latest  
+echo -e "${CYAN}Docker Image Repository URL${NC} : ${GREEN}$IMAGE_REPO_URL:$IMAGE_TAG${NC}"
+echo -e "${CYAN}Local image${NC} : ${GREEN}$APP_NAME:$IMAGE_TAG ${NC} "
+
 # Upload image
 if [[ ! -z $UPLOAD_IMAGE ]]
 then
