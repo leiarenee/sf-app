@@ -9,6 +9,10 @@ jobs:
       run: yarn --cwd server
     - name: Server Run tests
       run: yarn --cwd server test
+    - name: Symantic Versioning
+      run: |
+        yarn --cwd server install ci-auto-version@0.3.0 --no-save
+        node --cwd server node_modules/ci-auto-version/auto_version.js
   build:
     if: 1 == 0
     runs-on: ubuntu-latest
@@ -34,3 +38,4 @@ jobs:
       run: |
         docker build server -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+  
