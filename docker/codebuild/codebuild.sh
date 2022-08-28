@@ -78,8 +78,8 @@ docker build $BUILD_CONTEXT \
   --file $DOCKER_FILE \
   --tag $IMAGE_REPO_URL:latest \
   --tag $IMAGE_REPO_URL:$IMAGE_TAG \
-  --tag $IMAGE_REPO_NAME:latest \ # for local builds
-  --tag $IMAGE_REPO_NAME:$IMAGE_TAG \  # for local builds
+  --tag $IMAGE_REPO_NAME:latest \
+  --tag $IMAGE_REPO_NAME:$IMAGE_TAG \ 
   $cache_string \
   $no_cache_argument
 
