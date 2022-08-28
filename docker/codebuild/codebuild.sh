@@ -42,6 +42,7 @@ function fetch_secret {
 function fetch_image_version {
   # Get version with commit hash
   export DOCKER_IMAGE_VERSION=$(git describe --tags)
+  xport DOCKER_IMAGE_VERSION=$IMAGE_TAG
   if [ -z $DOCKER_IMAGE_VERSION ]
   then
     DOCKER_IMAGE_VERSION=latest
