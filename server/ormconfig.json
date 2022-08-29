@@ -3,7 +3,7 @@
   "host": "localhost",
   "port": 5432,
   "username": "pguser",
-  "password": "pgpass",
+  "password": "pgpass12",
   "database": "pgdb",
   "synchronize": true,
   "logging": false,
