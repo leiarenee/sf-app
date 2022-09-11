@@ -35,7 +35,7 @@ jobs:
       run: |
         docker build server -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-  version:  # https://github.com/marketplace/actions/automated-version-bump
+
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
