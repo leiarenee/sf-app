@@ -5,9 +5,10 @@ on:
     inputs:
       workspaceId:
         description: Workspace Id (Changes tfstate bucket)    
-        default: testing
+        default: pipeline
         type: choice
         options:
+        - pipeline
         - testing
         - staging
         - production-1
