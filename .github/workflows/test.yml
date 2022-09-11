@@ -1,5 +1,6 @@
 name: test
 on: push
+if: 1 == 0
 jobs:
   test:
     if: 1 == 0
